@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/style.css">
+    <title>Mister Canvas</title>
+</head>
+<header>
+    <h1>Mister canvas</h1>
+    <h3>the best drwwing app in the web</h3>
+</header>
+
+<body onload="onInit()"">
+    <section class=" page-container">
+
+    <form onsubmit="onSubmit(event)">
+        <fieldset>
+            <lable>background color
+                <input type="color" name="background-color" value="#ffffff" oninput="onBgColorChange(this.value)">
+            </lable>
+            <lable>stroke color
+                <input type="color" name="stroke-color" oninput="onColorChange()">
+            </lable>
+            <lable> fill color
+                <input type="color" name="fill-color" value="#000000" oninput="onColorChange()">
+            </lable>
+
+            <lable for="pen-shape"> choose shape
+                <select oninput="onShapeChange(this.value)" id="pen-shape" pattern="Line|Circle|Rectengle|Triangle">
+                    <option value="line">Line</option>
+                    <option value="circle">Circle</option>
+                    <option value="rectengle">Rectengle</option>
+                    <option value="triangle">Triangle</option>
+                </select>
+                <lable>Diameter<input type="number" name="width" value="40" min="0" max="250" placeholder="thickness"
+                        oninput="onDiameterChange(this.value)">
+                </lable>
+                <lable>Thickness<input type="number" name="thickness" value="1" min="0" max="150"
+                        placeholder="thickness" oninput="onThicknessChange(this.value)">
+                </lable>
+
+                <input type="text" name="text" placeholder="write text">
+                <button>Save</button>
+                <button onclick="clearCanvas(event)">Clear</button>
+                <button>About</button>
+        </fieldset>
+    </form>
+    </section>
+    <section class="canvas-container">
+        <canvas width="400px" height="700px"></canvas>
+    </section>
+
+    <script src="mister-canvas-controller.js"></script>
+    <script src="./services/canvas-service.js"></script>
+</body>
+
+</html>
